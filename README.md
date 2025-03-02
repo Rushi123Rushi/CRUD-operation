@@ -1,5 +1,22 @@
 # CRUD-operation
-The extracted project contains the necessary components, including:
+
+//How to run
+
+download and unzip the curd.zip file 
+make all required extention and setup in vs code 
+open the curd file in vs code
+
+Run the CurdApplication.java file
+or
+open the new terminal and run this command mvn spring-boot:run
+then
+use this link on browser
+http://localhost:8080/api/products
+http://localhost:8080/api/categories
+
+//summary of your project:
+
+The project contains all the necessary components, including:
 
 Spring Boot setup (CurdApplication.java)
 REST Controllers (CategoryController.java, ProductController.java)
@@ -8,9 +25,8 @@ JPA Repositories (CategoryRepository.java, ProductRepository.java)
 Service layer (CategoryService.java, ProductService.java)
 Database configuration (application.properties)
 Maven build files (pom.xml)
-I'll now check if the implementation satisfies all your specific requirements. ​​
 
-The project is correctly configured to use a relational database (MySQL) instead of an in-memory database, which meets the requirement. Now, I'll verify the entity relationships, CRUD operations, and pagination support. ​​
+The project is correctly configured to use a relational database (MySQL) instead of an in-memory database, which meets the requirement.
 
 The Category and Product entities are correctly configured with JPA annotations:
 
@@ -19,11 +35,11 @@ Category:
 Marked with @Entity
 Has @OneToMany with cascade = CascadeType.ALL for related products
 Uses @JsonIgnore to avoid infinite recursion in serialization
+
 Product:
 
 Marked with @Entity
-Has @ManyToOne with @JoinColumn(name = "category_id", nullable = false), establishing the one-to-many relationship with Category.
-Now, I'll check the controller methods for CRUD operations and pagination support. ​​
+Has @ManyToOne with @JoinColumn(name = "category_id", nullable = false), establishing the one-to-many relationship with Category. ​​
 
 The CategoryController and ProductController include all necessary CRUD operations:
 
@@ -34,6 +50,7 @@ Category APIs:
 @PostMapping (Create category)
 @PutMapping("/{id}") (Update category by ID)
 @DeleteMapping("/{id}") (Delete category by ID)
+
 Product APIs:
 
 @GetMapping (Fetch all products)
